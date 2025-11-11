@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<StoreDbContext>(options =>
 {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:StoreDbConnection"]);
+    options.UseSqlite(builder.Configuration["ConnectionStrings:StoreDbConnection"],  b => b.MigrationsAssembly("StoreApp.Web")); // ikinci parametre dbcontext .Data'da olmasina ragmen .Web'te calismasini dagladi
 });
 
 builder.Services.AddScoped<IStoreRepsository, EFStoreRepository>();//bu bir injection islemi-- Scoped, Transit, Singleton
