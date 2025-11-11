@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using StoreApp.Data.Abstract;
+using StoreApp.Web.Models;
 
 namespace StoreApp.Web.Controllers;
 
@@ -10,6 +11,20 @@ public class HomeController : Controller
     {
         _storeRepsository = storeRepository;
     }
-    public IActionResult Index() => View(); //arrow function
+    public IActionResult Index()
+    {
+        var products = _storeRepsository.Products.Select(p => new ProductViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Description = p.Description,
+            Price = p.Price
+        }).ToList();
+
+        return View(new ProductListViewModel
+        {
+            Products = products
+        });
+    }
     
 }
