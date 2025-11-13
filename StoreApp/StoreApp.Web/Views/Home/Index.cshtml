@@ -1,5 +1,11 @@
 @model ProductListViewModel
 
+<h5>Index Page</h5>
+
+@if(Model.Products.Count()==0)
+{
+    <p>Ürün bulunamadı</p>
+}
 
 @foreach(var p in Model.Products)
 {
@@ -9,4 +15,15 @@
         <p>@p.Price</p>
     </div>
 }    
-<h5>Index Page</h5>
+<div class="card border mx-auto mt-0" style="max-width: 150px;">
+    <div class="card-header text-center py-0 ">
+        <p class="mb-1 ">sayfalar</p>
+    </div>
+    <div class="card-body text-center py-1">
+
+        @for(var i = 1; i <= Model.PageInfo.TotalPages; i++) 
+        {
+            <a href="/?page=@i" class="btn btn-outline-primary btn-sm m-1">@i</a>
+        }
+    </div>
+</div>
