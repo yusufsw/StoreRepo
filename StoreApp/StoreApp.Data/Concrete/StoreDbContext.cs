@@ -35,7 +35,7 @@ public class StoreDbContext : DbContext
                 new() { Id=3, Name="Samsung S26", Price=70000, Description="Guzel telefon"},
                 new() { Id=4, Name="Samsung S27", Price=80000, Description="Guzel telefon"},
                 new() { Id=5, Name="Samsung S28", Price=90000, Description="Guzel telefon"},
-                new() { Id=6, Name="Samsung S28", Price=90000, Description="Guzel telefon"},
+                new() { Id=6, Name="Samsung S29", Price=90000, Description="Guzel telefon"},
                 //new() { Id=7, Name="Arcelik Camasir Makinesi", Price=100000, Description="Guzel makine"},
             }
         );
@@ -54,7 +54,7 @@ public class StoreDbContext : DbContext
             new List<ProductCategory>()
             {
                 new ProductCategory() {ProductId=1 , CategoryId=1},      
-                new ProductCategory() {ProductId=1 , CategoryId=2},       
+                new ProductCategory() {ProductId=1 , CategoryId=3},       
                 new ProductCategory() {ProductId=2 , CategoryId=1},      
                 new ProductCategory() {ProductId=3 , CategoryId=1},      
                 new ProductCategory() {ProductId=4 , CategoryId=1},      
