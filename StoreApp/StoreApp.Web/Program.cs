@@ -16,10 +16,13 @@ builder.Services.AddDbContext<StoreDbContext>(options =>
 });
 
 builder.Services.AddScoped<IStoreRepsository, EFStoreRepository>();//bu bir injection islemi-- Scoped, Transit, Singleton
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
+app.UseSession();
 
 // urun detay => samsung-s24
 app.MapControllerRoute("product_details", "{name}", new {controller = "Home" , action = "Details" });
