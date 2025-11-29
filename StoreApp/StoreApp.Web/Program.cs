@@ -6,6 +6,7 @@ using StoreApp.Web.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 builder.Services.AddAutoMapper(typeof(MapperProfile).Assembly); // /Models/MapperProfile.cs 
 
@@ -22,10 +23,10 @@ app.UseStaticFiles();
 
 // urun detay => samsung-s24
 app.MapControllerRoute("product_details", "{name}", new {controller = "Home" , action = "Details" });
-
 //kategori urun listesi => products/telefon 
 app.MapControllerRoute("products_in_category", "products/{category?}", new {controller = "Home" , action = "Index" });
 
 app.MapDefaultControllerRoute();
+app.MapRazorPages();
 
 app.Run();
