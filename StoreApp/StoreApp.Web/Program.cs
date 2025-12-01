@@ -19,6 +19,9 @@ builder.Services.AddScoped<IStoreRepsository, EFStoreRepository>();//bu bir inje
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<Cart>(sc => SessionCart.GetCart(sc));
+
 var app = builder.Build();
 
 app.UseStaticFiles();
