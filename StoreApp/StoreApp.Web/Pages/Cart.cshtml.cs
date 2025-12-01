@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SQLitePCL;
 using StoreApp.Data.Abstract;
 using StoreApp.Web.Helpers;
 using StoreApp.Web.Models;
@@ -30,6 +31,16 @@ namespace StoreApp.Web.Pages
                 Cart.AddItem(product, 1);
                 HttpContext.Session.SetJson("cart",Cart);
             }
+
+            return RedirectToPage("/Cart");
+        }
+
+        public IActionResult OnPostRemove(int Id)
+        {
+            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
+            var product = Cart.Items.First(p => p.Product.Id == Id).Product;
+            Cart?.RemoveItem(product);
+            HttpContext.Session.SetJson("cart",Cart);
 
             return RedirectToPage("/Cart");
         }
