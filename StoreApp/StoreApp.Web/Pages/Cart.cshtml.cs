@@ -7,8 +7,8 @@ namespace StoreApp.Web.Pages
 {
     public class CartModel : PageModel
     {
-        private IStoreRepsository _repository;
-        public CartModel(IStoreRepsository repsository, Cart cartService)
+        private IStoreRepository _repository;
+        public CartModel(IStoreRepository repsository, Cart cartService)
         {
             _repository = repsository;
             Cart = cartService;

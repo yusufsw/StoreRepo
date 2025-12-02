@@ -3,7 +3,7 @@ using StoreApp.Data.Abstract;
 
 namespace StoreApp.Data.Concrete;
 
-public class EFStoreRepository : IStoreRepsository
+public class EFStoreRepository : IStoreRepository
 {
     //context bagimlilik controller'dan buraya tasindi
     private StoreDbContext _context;  //StoreDbContext, DbContext'ten inheritance

@@ -15,7 +15,8 @@ builder.Services.AddDbContext<StoreDbContext>(options =>
     options.UseSqlite(builder.Configuration["ConnectionStrings:StoreDbConnection"],  b => b.MigrationsAssembly("StoreApp.Web")); // ikinci parametre, dbcontext'in .Data'da olmasina ragmen .Web'te calismasini dagladi
 });
 
-builder.Services.AddScoped<IStoreRepsository, EFStoreRepository>();//bu bir injection islemi-- Scoped, Transit, Singleton
+builder.Services.AddScoped<IStoreRepository, EFStoreRepository>();//bu bir injection islemi-- Scoped, Transit, Singleton
+builder.Services.AddScoped<IOrderRepository, EfOrderRepository>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 

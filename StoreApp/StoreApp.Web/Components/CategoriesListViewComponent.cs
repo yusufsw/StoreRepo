@@ -6,15 +6,15 @@ namespace StoreApp.Web.Components;
 
 public class CategoriesListViewComponent: ViewComponent
 {
-    private readonly IStoreRepsository _storeRepsository; 
-    public CategoriesListViewComponent(IStoreRepsository storeRepsository)
+    private readonly IStoreRepository _storeRepository; 
+    public CategoriesListViewComponent(IStoreRepository storeRepsository)
     {
-        _storeRepsository = storeRepsository;
+        _storeRepository = storeRepsository;
     }
     public IViewComponentResult Invoke()
     {
         ViewBag.SelectedCategory = RouteData?.Values["category"];
-        return View(_storeRepsository.Categories.Select(c => new CategoryViewModel
+        return View(_storeRepository.Categories.Select(c => new CategoryViewModel
         {
             Id = c.Id,
             Name = c.Name,
